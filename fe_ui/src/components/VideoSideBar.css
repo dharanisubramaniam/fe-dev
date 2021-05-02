@@ -1,0 +1,31 @@
+.videoSideBar {
+  flex: 0.2;
+  padding: 10px;
+  border-radius: 0.75rem;
+  background-color: white;
+  height: 100vh;
+}
+.videoSideBar__filler {
+  background-color: #2fbf61;
+  height: 5px;
+  width: 200px;
+  margin: 10px;
+  border-radius: 0.75rem;
+}
+.videoSideBar__form > label {
+  font-family: "Muli", sans-serif;
+}
+.videoSideBar__form > div {
+  display: flex;
+}
+
+.videoSideBar__form > input {
+  margin: 5px;
+}
+.videoSideBar > p {
+  color: #2fbf61;
+  margin: 10px;
+}
+.checkbox1 {
+  color: #2fbf61;
+}
