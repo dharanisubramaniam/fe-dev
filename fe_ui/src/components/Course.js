@@ -1,8 +1,6 @@
 import React from "react";
 import "./MainBody.css";
 import Row from './Row';
-import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import { useStateValue } from "../redux/StateProvider";
 
 
