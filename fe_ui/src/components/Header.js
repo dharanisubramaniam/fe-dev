@@ -7,7 +7,7 @@ import img from "../images/JohnDoe.jfif";
 
 function Header() {
   const[{user}]=useStateValue()
-  console.log("user",user);
+  // console.log("user",user);
   return (
     <div className="header">
       <Link className="header__logo" to="/">

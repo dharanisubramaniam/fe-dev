@@ -15,12 +15,12 @@ import Profile from "./components/Profile";
 
 function App() {
 
-  const [{course,category},dispatch] = useStateValue();
+  const [{course,category,skill},dispatch] = useStateValue();
   useEffect(() => {
     async function fetchData() {
       try {
         const response = await axios.get("/api/course"); 
-        const _course = response.data.results
+        const _course = response.data
         dispatch({type:"SET_COURSE",course:_course})
       } catch (error) {
         console.log(error);
@@ -32,7 +32,8 @@ function App() {
     async function fetchData() {
       try {
         const response = await axios.get("/api/category");
-        const _category = response.data.results
+        console.log(response.data);
+        const _category = response.data
         dispatch({type:"SET_CATEGORY",category:_category})
       } catch (error) {
         console.log(error);
@@ -40,7 +41,19 @@ function App() {
     }
     fetchData();
   }, []);
-  // console.log("appcourse",course);
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await axios.get("/api/skill");
+        const _skill = response.data
+        dispatch({type:"SET_SKILL",skill:_skill})
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    fetchData();
+  }, []);
+  // console.log("skill",skill);
   // console.log("appcategory",category);
 
   return (

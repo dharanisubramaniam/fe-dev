@@ -1,26 +1,30 @@
-const connection = require("../db");
-const express = require("express");
+const express = require('express');
 const router = express.Router();
+const Category = require('../schema/Category');
 
-router.get("/", async (req, res) => {
-  connection.connect((err) => {
-    if (err) {
-      return err;
+router.post('/',async(req,res)=>{
+        try {
+            const newCategory = new Category({
+                id:req.body.id,
+                name:req.body.name,
+                description:req.body.description
+            });
+            const category = await newCategory.save();
+            res.json(category);
+        } catch (error) {
+            console.error(error.message);
+            res.status(500).send('Server Error');
+        }
+})
+router.get('/',async(req,res)=>{
+    try {
+        const category = await Category.find({});
+        res.json(category);
+        // res.send("category success");
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send('Server Error');
     }
-  });
-  const sql = "SELECT * FROM `category_table` WHERE 1";
-  connection.query(sql, function (err, results, rows, fields) {
-    if (err) {
-      return err;
-    } else {
-      if (rows.length > 0) {
-        res.json({ results });
-      } else {
-        res.json([]);
-      }
-    }
-    //console.log(result)
-  });
 });
 
-module.exports = router;
+module.exports=router;

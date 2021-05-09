@@ -9,7 +9,7 @@ function AllCourse() {
     return (
        <div>
                 {category.map((item)=>(
-                  <AllCourseRow key={item.category_id} title={item.category_name} id={item.category_id}/>
+                  <AllCourseRow key={item.id} title={item.name} id={item.id}/>
                 ))}
            
        </div>

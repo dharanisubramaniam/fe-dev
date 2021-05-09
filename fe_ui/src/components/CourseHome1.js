@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import img from "../images/coursehome.jpg";
 import Thumbnail1 from "../images/StudentsWorkThumbnail1.jpg";
 import Thumbnail2 from "../images/StudentWorkThumbnail2.jpg";
@@ -12,8 +12,19 @@ import AccountCircleRoundedIcon from "@material-ui/icons/AccountCircleRounded";
 import ChevronLeftRoundedIcon from "@material-ui/icons/ChevronLeftRounded";
 import ChevronRightRoundedIcon from "@material-ui/icons/ChevronRightRounded";
 import {Link} from "react-router-dom";
+import { useStateValue } from '../redux/StateProvider';
 
-function CourseHome1({img,desc,thumbnail_desc,title}) {
+
+
+function CourseHome1({img,desc,thumbnail_desc,title,timing,rating,level,noofstudents,lesson,id,categoryid}) {
+   const[{skill}]=useStateValue();
+   skill.map((item)=>{
+     console.log("item",item);
+     item.skills.map((skill)=>{
+       console.log("skill",skill)
+     })
+   })
+   
     return (
         <div className="coursehome">
       <Link to="/video">
@@ -48,23 +59,23 @@ function CourseHome1({img,desc,thumbnail_desc,title}) {
           <div className="coursehome__desc2Box">
             <div className="coursehome__desc2Boxes">
               <p className="coursehome__descBoxParagraph">LEVEL</p>
-              <p>Intermediate</p>
+              <p>{level}</p>
             </div>
             <div className="coursehome__desc2Boxes">
               <p className="coursehome__descBoxParagraph">LESSONS</p>
-              <p>6</p>
+              <p>{lesson}</p>
             </div>
             <div className="coursehome__desc2Boxes">
               <p className="coursehome__descBoxParagraph">DURATION</p>
-              <p>4h 45m</p>
+              <p>{timing}</p>
             </div>
             <div className="coursehome__desc2Boxes">
               <p className="coursehome__descBoxParagraph">RATING</p>
-              <p>5</p>
+              <p>{rating}</p>
             </div>
             <div className="coursehome__desc2Boxes">
               <p className="coursehome__descBoxParagraph">STUDENTS</p>
-              <p>1200</p>
+              <p>{noofstudents}</p>
             </div>
           </div>
           <div className="coursehome__desc2Enroll">
@@ -80,11 +91,14 @@ function CourseHome1({img,desc,thumbnail_desc,title}) {
       <div className="coursehome__skills">
         <h3>Skills covered</h3>
         <div className="coursehome__skillsCovered">
-          <p>AfterEffects</p>
-          <p>3D Modelling</p>
-          <p>3D Rendering</p>
-          <p>Composting</p>
-        </div>
+        {
+          skill.map((item) =>(
+           item.skills.map((skill)=>(
+             <p>{skill}</p>
+           ))
+          ))
+        }
+         </div>
       </div>
       <div className="coursehome__courseOverview">
         <h3>Course Overview</h3>
@@ -270,4 +284,15 @@ function CourseHome1({img,desc,thumbnail_desc,title}) {
     )
 }
 
-export default CourseHome1
+export default CourseHome1;
+
+function Skill({skill}) {
+  console.log("skill in the last",skill);
+  return (
+    <></>
+    // <div className="coursehome__skillsCovered">
+    //   <p>skill</p>      
+    // </div>
+  )
+}
+

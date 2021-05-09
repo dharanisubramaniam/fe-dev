@@ -13,7 +13,14 @@ function CourseHome() {
         img={item.thumbnail}
          desc={item.description} 
          thumbnail_desc={item.thumbnail_desc} 
-         title={item.title}/>
+         title={item.title}
+         level={item.difficultylevel}
+         rating={item.rating}
+         timing={item.timing}
+         noofstudents={item.noofstudents}
+         lesson={item.lessons}
+         id={item.course_id}
+         categoryid={item.categoryid}/>
       ))}
     </div>
   );

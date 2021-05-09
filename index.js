@@ -1,41 +1,25 @@
 const express = require("express");
-const cors = require("cors");
-
-const corsOptions = {
-  origin: "http://localhost:3000",
-};
 
 const app = express();
 
-const PORT = process.env.port || 5000;
+const mongooseDB = require('./config/db');
 
-app.use(cors(corsOptions));
-/* app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, contentType,Content-Type, Accept, Authorization"
-  );
-  next();
-}); */
-app.use(express.json({ extended: false }));
+//connect db
+mongooseDB();
 
-app.use("/api/video", require("./api/video"));
-app.use("/api/auth", require("./api/auth"));
-app.use("/api/category", require("./api/category"));
-app.use("/api/course", require("./api/course"));
+//middleware initiation
+//extended false - no nested objects {name:{username:"dhar"}}
+app.use(express.json({extended:false}))
 
-app.get("/", (req, res) => {
-  res.send(`server connected`);
-});
-app.get('/*', function(req, res) {
-  res.sendFile(path.join(__dirname, '../courses/index.html'), function(err) {
-    if (err) {
-      res.status(500).send(err)
-    }
-  })
-})
+const PORT = process.env.PORT || 5000
 
-app.listen(PORT, () => console.log(`server is listening on port ${PORT}`));
+app.get('/',(req,res)=>{res.send("API running")})
 
+//define routes
+//app.use registers the middleware in order of sequence
+app.use('/api/category',require('./api/category'));
+app.use('/api/course',require('./api/course'));
+// app.use('/api/profile',require('./routes/api/profile'));
+app.use('/api/skill',require('./api/skill'));
+
+app.listen(PORT,()=>console.log(`server listening on ${PORT}`))

@@ -6,7 +6,7 @@ import { useStateValue } from "../redux/StateProvider";
 
 function Course() {
    const [{course,updatedCourse},dispatch]=useStateValue()
-  
+  console.log(course);
    return ( 
         <div>
             <div className="course__categoryContainer">

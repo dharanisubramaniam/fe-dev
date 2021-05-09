@@ -9,7 +9,6 @@ import { useStateValue } from "../redux/StateProvider";
 function Row({img,time, title, students, amount,rating}) {
   const[{updatedTitle},dispatch]=useStateValue()
   const updateTitle=(e)=>{
-    // console.log(e.target.nextSibling.children[1].innerHTML);
     dispatch({type:"UPDATE_TITLE",updatedTitle:e.target.nextSibling.children[1].innerHTML})
    }
   

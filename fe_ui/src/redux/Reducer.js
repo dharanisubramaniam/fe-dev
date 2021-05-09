@@ -4,7 +4,8 @@ export const initialState = {
     allCourse:false,
     updatedCourse:null,
     updatedTitle:null,
-    user:true,
+    user:false,
+    skill:[],
 }
 
 
@@ -19,6 +20,11 @@ export const reducer =(state,action)=>{
             return{
                     ...state,
                     course:action.course,
+                };
+        case"SET_SKILL":
+            return{
+                    ...state,
+                    skill:action.skill,
                 };
         case"SET_ALLCOURSE":
             return{

@@ -23,7 +23,7 @@ function SideBar() {
       <div className="sidebar__category">
         
         {category.map((item) => (
-          <p key={item.category_id} onClick={(e)=>{courseUpdate(e)}}>{item.category_name}</p>
+          <p key={item.id} onClick={(e)=>{courseUpdate(e)}}>{item.name}</p>
         ))}
         
       </div>
