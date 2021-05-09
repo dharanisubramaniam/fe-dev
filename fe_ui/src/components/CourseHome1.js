@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import img from "../images/coursehome.jpg";
 import Thumbnail1 from "../images/StudentsWorkThumbnail1.jpg";
 import Thumbnail2 from "../images/StudentWorkThumbnail2.jpg";
 import Thumbnail3 from "../images/StudentWorkThumbnail3.jpg";
