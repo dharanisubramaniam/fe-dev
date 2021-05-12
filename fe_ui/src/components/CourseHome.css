@@ -1,22 +1,10 @@
-.coursehome__container{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .coursehome {
-  /* position: absolute; */
-  /* left: 17%; */
-  max-width: 1000px;
   font-family: "Roboto", sans-serif;
   color: #12142d;
-  
 }
 
 .coursehome__thumbnail {
-  margin-top: 30px;
   max-height: auto;
-  max-width: 1000px;
   position: relative;
   color: white;
 }

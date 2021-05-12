@@ -47,6 +47,7 @@ function CourseHome1({img,desc,thumbnail_desc,title,timing,rating,level,noofstud
         </div>
       </div>
       </Link>
+      <div>
       <div className="coursehome__description">
         <div className="coursehome__desc1">
           <h3>Description</h3>
@@ -277,6 +278,7 @@ function CourseHome1({img,desc,thumbnail_desc,title,timing,rating,level,noofstud
             Enroll
           </a>
         </div>
+      </div>
       </div>
     </div>
 
