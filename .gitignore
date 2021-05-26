@@ -1,2 +1,3 @@
 node_modules
-/fe_ui
+**/video
+fe_ui
